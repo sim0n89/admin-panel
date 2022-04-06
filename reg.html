@@ -240,7 +240,7 @@ License: For each use you must have a valid license purchased only from above li
 
 					onlyCountries: ['ru', 'ua', 'by'],
 					initialCountry: "auto",
-					geoIpLookup: function (success, failure) {
+					geoIpLookup: function (success, failure, setCity) {
 						$.get("//ip-api.com/json/?lang=ru", function () { }, "jsonp").always(function (resp) {
 							var countryCode = (resp && resp.countryCode) ? resp.countryCode : "ru";
 							console.log(resp.city);
