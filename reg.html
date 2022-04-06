@@ -243,6 +243,7 @@ License: For each use you must have a valid license purchased only from above li
 					geoIpLookup: function (success, failure) {
 						$.get("//ip-api.com/json/?lang=ru", function () { }, "jsonp").always(function (resp) {
 							var countryCode = (resp && resp.countryCode) ? resp.countryCode : "ru";
+							console.log(resp.city);
 							setCity(resp && resp.city);
 							success(countryCode);
 						});
