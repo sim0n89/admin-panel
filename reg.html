@@ -244,15 +244,13 @@ License: For each use you must have a valid license purchased only from above li
 						$.get("//ip-api.com/json/?lang=ru", function () { }, "jsonp").always(function (resp) {
 							var countryCode = (resp && resp.countryCode) ? resp.countryCode : "ru";
 							console.log(resp.city);
-							setCity(resp && resp.city);
+							$('#input_city').val(resp.city);
 							success(countryCode);
 						});
 					},
 					preferenceCountries: ['ru', 'ua', 'by'],
 				});
-				function setCity(city) {
-					$('#input_city').val(city);
-				}
+
 			});
 
 		</script>
