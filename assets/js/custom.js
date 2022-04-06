@@ -27,3 +27,22 @@ for(let radio of radioButtons) {
     numOfChanges++;
   });
 }
+
+jQuery(document).ready(function($){
+  $(document).click( function(e){
+    if ( $(e.target).closest('#subscriptions').length ) {
+        $('#subscriptions .subs').css({'display':'flex'});
+        return;
+    }
+// клик снаружи элемента 
+  $('#subscriptions .subs').css({'display':'none'});
+  });
+  $(document).click( function(e){
+    if ( $(e.target).closest('#subscribers').length ) {
+        $('#subscribers .subs').css({'display':'flex'});
+        return;
+    }
+// клик снаружи элемента 
+  $('#subscribers .subs').css({'display':'none'});
+  });
+});

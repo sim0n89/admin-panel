@@ -31,6 +31,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="assets/js/cityphone/css/intlTelInput.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<style>
 			.form-check-input:checked{
@@ -38,7 +39,10 @@ License: For each use you must have a valid license purchased only from above li
 }
 .form-check-input:checked {
     background-color: #fff;
-    border-color: #00000040;
+    border-color: #00000040!important;
+}
+.iti{
+	width: 100%;
 }
 			
 		</style>
@@ -121,7 +125,8 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 							</div>
 							<div class="fv-row mb-7">
-								<input class="form-control form-control-lg form-control-solid required" type="phone" placeholder="+7 ... ... .. .." name="phone" autocomplete="off" />
+								<input class="form-control form-control-lg form-control-solid required" id="input_phone" type="phone"
+									placeholder="... ... .. .." name="phone" autocomplete="off" />
 							</div>
 							<div class="row fv-row mb-7">
 								<!--begin::Col-->
@@ -223,6 +228,28 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
 		<script src="assets/js/custom.js"></script>
+		<script src="assets/js/cityphone/js/intlTelInput.min.js"></script>
+		<script>
+			jQuery(document).ready(function ($) {
+				var input = document.querySelector("#input_phone");
+				window.intlTelInput(input, {
+					// any initialisation options go here
+					autoHideDialCode: false,
+					separateDialCode: true,
+
+					//onlyCountries: ['ru', 'ua', 'by'],
+					initialCountry: "auto",
+					geoIpLookup: function (success, failure) {
+						$.get("https://ipinfo.io", function () { }, "jsonp").always(function (resp) {
+							var countryCode = (resp && resp.country) ? resp.country : "us";
+							success(countryCode);
+						});
+					},
+					preferenceCountries: ['ru', 'ua', 'by'],
+				});
+			});
+
+		</script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Custom Javascript(used by this page)-->
 		<script src="assets/js/custom/authentication/sign-up/general.js"></script>
