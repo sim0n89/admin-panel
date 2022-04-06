@@ -549,11 +549,11 @@ var KTWidgets = function () {
 
         var options = {
             series: [{
-                name: 'Net Profit',
+                name: 'Запланировано',
                 data: [30, 40, 40, 1, 90, 70, 70]
             },
             {
-                name: 'prices',
+                name: 'Результат',
                 data: [1, 2, 3, 90, 90, 70, 70]
                
             }
@@ -651,7 +651,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " чел."
+                        return val + " ₽"
                     }
                 }
             },

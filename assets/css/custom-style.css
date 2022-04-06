@@ -243,7 +243,7 @@ color: #303030;
 	font-size: 10px;
 }
 .subs .search_results .comment{
-	font-family: 'Inter';
+	font-family: 'Inter',sans-serif;
 	font-style: normal;
 	
 	font-size: 11px;
@@ -251,3 +251,25 @@ color: #303030;
 	margin-right: 10px;
 	color: #BDBDBD;
 }
+
+select + label{
+	width: 100%;
+	height: 40px;
+	padding: 0.825rem 1.5rem;
+	text-align: left;
+	top: 0;
+	font-weight: 500;
+	line-height: 1.5;
+	font-size: 1.15rem;
+	position: absolute;
+	pointer-events: none;
+	color: #A1A5B7;
+	display: block;
+  opacity: 1;
+ }
+ /* Здесь то что будет происходить с Placeholder'ом после изменения select */
+ select:valid+label {
+	display: none;
+
+ 
+ }

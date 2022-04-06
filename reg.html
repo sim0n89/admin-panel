@@ -10,7 +10,7 @@ Dribbble: www.dribbble.com/keenthemes
 Like: www.facebook.com/keenthemes
 License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
 -->
-<html lang="en">
+<html lang="ru">
 	<!--begin::Head-->
 	<head><base href="">
 		<title>Kurakin</title>
@@ -32,6 +32,7 @@ License: For each use you must have a valid license purchased only from above li
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/js/cityphone/css/intlTelInput.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/custom-style.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<style>
 			.form-check-input:checked{
@@ -132,17 +133,20 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Col-->
 								<div class="col-xl-6">
 									
-									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Телеграм: @" name="telegram" autocomplete="off">
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xl-6">
+									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Телеграм: @" id="iput_telegram"
+										name="telegram" autocomplete="off">
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col-xl-6">
 									
-									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Инстаграм" name="instagram" autocomplete="off">
-				
-								<!--end::Col-->
-							</div>
-						</div>
+										<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Инстаграм" name="instagram"
+											autocomplete="off">
+										
+										<!--end::Col-->
+										</div>
+										</div>
+										
 							<div class="fv-row mb-7">
 								<div class="col-xl-12">
 									<input class="form-control form-control-lg form-control-solid required" id="input_city" type="text" placeholder="Город"
@@ -150,8 +154,33 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 							</div>
 							<div class="fv-row mb-7">
-								<div class="col-xl-12">
-									<input class="form-control form-control-lg form-control-solid required" type="text" placeholder="Сфера деятельности" name="sphera" autocomplete="off" />
+								<div class="col-xl-12 position-relative">
+									<select required class="form-control form-control-lg form-control-solid required" placeholder="Сфера деятельности"
+										id="sphera" name="sphera" autocomplete="off">
+										<option selected disabled hidden value=""></option>
+										<option value="товарка">Товарка</option>
+										<option value="универсал">Универсал</option>
+										<option value="эксперт">Эксперт</option>
+										<option value="ищу себя">Ищу себя</option>
+									</select>
+									<label for="sphera">Сфера деятельности</label>
+								</div>
+								</div>
+								<div class="row fv-row mb-7">
+									<!--begin::Col-->
+									<div class="col-xl-6">
+								
+										<input class="form-control form-control-lg form-control-solid" type="text"
+											placeholder="Заработок за текущий месяц" name="money_this_month" autocomplete="off">
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col-xl-6">
+								
+										<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Цель на следующий месяц"
+											name="money_next_month" autocomplete="off">
+								
+										<!--end::Col-->
 								</div>
 							</div>
 							<!--end::Input group-->
@@ -249,6 +278,19 @@ License: For each use you must have a valid license purchased only from above li
 						});
 					},
 					preferenceCountries: ['ru', 'ua', 'by'],
+				});
+				let telegram = document.getElementById("iput_telegram");
+				telegram.addEventListener("focus", function () {
+					if (this.value[0] != '@') {
+						this.value = '@' + this.value;
+					}
+
+				});
+				telegram.addEventListener("change", function () {
+					if (this.value[0] != '@') {
+						this.value = '@' + this.value;
+					}
+
 				});
 
 			});
