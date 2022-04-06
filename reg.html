@@ -233,11 +233,11 @@ License: For each use you must have a valid license purchased only from above li
 			jQuery(document).ready(function ($) {
 				var input = document.querySelector("#input_phone");
 				window.intlTelInput(input, {
-					// any initialisation options go here
-					autoHideDialCode: false,
-					separateDialCode: true,
 
-					//onlyCountries: ['ru', 'ua', 'by'],
+					autoHideDialCode: false,
+					separateDialCode: false,
+
+					onlyCountries: ['ru', 'ua', 'by'],
 					initialCountry: "auto",
 					geoIpLookup: function (success, failure) {
 						$.get("https://ipinfo.io", function () { }, "jsonp").always(function (resp) {
@@ -245,7 +245,7 @@ License: For each use you must have a valid license purchased only from above li
 							success(countryCode);
 						});
 					},
-					preferenceCountries: ['ru', 'ua', 'by'],
+					preferenceCountries: ['ru', 'ua'],
 				});
 			});
 
