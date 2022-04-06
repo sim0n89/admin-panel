@@ -1257,7 +1257,8 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::User-->
 													<!--begin::Actions-->
 													<div class="d-flex my-4">
-														<a href="#" class="btn btn-sm btn-danger me-2" id="kt_user_follow_button">
+														<a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#kt_modal_new_money">Заполнить доход</a>
+														<a href="#" class="btn btn-danger me-2" id="kt_user_follow_button">
 															<!--begin::Svg Icon | path: icons/duotune/arrows/arr012.svg-->
 															<span class="svg-icon svg-icon-3 d-none">
 																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -6424,6 +6425,76 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Modal dialog-->
 		</div>
 		<!--end::Modal - Invite Friend-->
+<!--begin::Modal - New money-->
+<div class="modal fade" id="kt_modal_new_money" tabindex="-1" aria-hidden="true">
+	<!--begin::Modal dialog-->
+	<div class="modal-dialog mw-650px">
+		<!--begin::Modal content-->
+		<div class="modal-content">
+			<!--begin::Modal header-->
+			<div class="modal-header pb-0 border-0 justify-content-end">
+				<!--begin::Close-->
+				<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+					<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+					<span class="svg-icon svg-icon-1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+							<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+								transform="rotate(-45 6 17.3137)" fill="black" />
+							<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+								fill="black" />
+						</svg>
+					</span>
+					<!--end::Svg Icon-->
+				</div>
+				<!--end::Close-->
+			</div>
+			<!--begin::Modal header-->
+			<!--begin::Modal body-->
+			<div class="modal-body scroll-y mx-5  pt-0 pb-15">
+				<!--begin::Heading-->
+				<div class="text-center">
+					<!--begin::Title-->
+					<h1 class="" style='font-weight: 600;	font-size: 19px;line-height: 23px; margin-bottom: 50px;'>Ведите
+						новую
+						цель</h1>
+					<!--end::Title-->
+					<!--begin::form-->
+					<div class="form w-100">
+						<div class="row fv-row mb-7 ">
+							<!--begin::Col-->
+							<div class="col-xl-6 ps-0">
+
+								<input class="form-control form-control-lg form-control-solid" type="number"
+									placeholder="Заработок за текущий месяц" name="this_month_money" min='0' autocomplete="off">
+								<div class="fv-plugins-message-container invalid-feedback"></div>
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col-xl-6 pe-0">
+
+								<input class="form-control form-control-lg form-control-solid" type="number"
+									placeholder="Цель для следующего месяца" name="next_month_money" min='0' autocomplete="off">
+
+								<!--end::Col-->
+							</div>
+						</div>
+						<div class="row fv-row mb-7 ">
+							<button class="btn-primary btn" type='submit'>Сохранить и продолжить</button>
+
+						</div>
+					</div>
+					<!--end::form-->
+				</div>
+				<!--end::Heading-->
+			</div>
+			<!--end::Modal body-->
+		</div>
+		<!--end::Modal content-->
+	</div>
+	<!--end::Modal dialog-->
+</div>
+<!--end::Modal - new money-->
+
 		<!--end::Modals-->
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
